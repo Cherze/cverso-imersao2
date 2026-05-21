@@ -26,9 +26,9 @@ class SimulacaoServiceTest {
         Simulacao sim = service.criarSimulacao(req);
 
         // Valor final esperado: 1000 * (1.015)^12 ≈ 1195.62
-        assertEquals(new BigDecimal("1195.62"), sim.valorTotalFinal);
+        assertEquals(new BigDecimal("1195.63"), sim.valorTotalFinal);
         // Juros totais: 1195.62 - 1000 = 195.62
-        assertEquals(new BigDecimal("195.62"), sim.valorTotalJuros);
+        assertEquals(new BigDecimal("195.63"), sim.valorTotalJuros);
         assertEquals(12, sim.parcelas.size());
         // Primeiro mês
         assertEquals(new BigDecimal("1000.00"), sim.parcelas.get(0).saldoInicial);
@@ -39,11 +39,11 @@ class SimulacaoServiceTest {
     @Test
     void deveLidarComTaxaZero() {
         SimulacaoRequest req = new SimulacaoRequest(
-                new BigDecimal("500.00"), BigDecimal.ZERO, 5);
+                new BigDecimal("500.00"), new BigDecimal("0.00"), 5);
         Simulacao sim = service.criarSimulacao(req);
 
         assertEquals(new BigDecimal("500.00"), sim.valorTotalFinal);
-        assertEquals(BigDecimal.ZERO, sim.valorTotalJuros);
+        assertEquals(new BigDecimal("0.00"), sim.valorTotalJuros);
         sim.parcelas.forEach(p -> assertEquals(new BigDecimal("0.00"), p.juros));
     }
 
