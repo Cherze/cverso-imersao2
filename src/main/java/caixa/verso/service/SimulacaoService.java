@@ -1,5 +1,6 @@
 package caixa.verso.service;
 
+import caixa.verso.dto.SimulacaoRequest;
 import caixa.verso.model.ParcelaMensal;
 import caixa.verso.model.Simulacao;
 import caixa.verso.repository.SimulacaoRepository;

@@ -1,9 +1,12 @@
 package caixa.verso.resource;
 
+import caixa.verso.dto.SimulacaoRequest;
+import caixa.verso.dto.SimulacaoResponse;
 import caixa.verso.dto.mapper.SimulacaoMapper;
 import caixa.verso.model.Simulacao;
 import caixa.verso.service.SimulacaoService;
 import jakarta.inject.Inject;
+import jakarta.validation.Valid;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;

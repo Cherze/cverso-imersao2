@@ -1,5 +1,11 @@
 package caixa.verso.dto.mapper;
 
+import caixa.verso.dto.ParcelaMensalResponse;
+import caixa.verso.dto.SimulacaoResponse;
+import caixa.verso.model.Simulacao;
+
+import java.util.List;
+
 public class SimulacaoMapper {
 
     public static SimulacaoResponse toResponse(Simulacao simulacao) {

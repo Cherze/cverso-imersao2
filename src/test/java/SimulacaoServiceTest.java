@@ -1,12 +1,19 @@
+import caixa.verso.dto.SimulacaoRequest;
+import caixa.verso.model.Simulacao;
 import caixa.verso.service.SimulacaoService;
 import io.quarkus.test.common.QuarkusTestResource;
 import io.quarkus.test.junit.QuarkusTest;
 import jakarta.inject.Inject;
+import jakarta.ws.rs.NotFoundException;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 @QuarkusTest
-@QuarkusTestResource(H2DatabaseTestResource.class) // H2 em memória para testes
+//@QuarkusTestResource(H2DatabaseTestResource.class) // H2 em memória para testes
 class SimulacaoServiceTest {
 
     @Inject
