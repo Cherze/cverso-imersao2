@@ -30,7 +30,7 @@ public class Simulacao extends PanacheEntity {
     @Column(nullable = false)
     public LocalDateTime dataCriacao;
 
-    @OneToMany(mappedBy = "simulacao", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "simulacao", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @OrderBy("mes ASC")
     public List<ParcelaMensal> parcelas = new ArrayList<>();
 }
