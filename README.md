@@ -1,54 +1,210 @@
-# cverso-imersao2
+# TALENTOS DIGITAIS - CAIXAVERSO - BACK-END JAVA
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+Feito por:
 
-If you want to learn more about Quarkus, please visit its website: <https://quarkus.io/>.
+Cherze Carvalho Freitas
 
-## Running the application in dev mode
 
-You can run your application in dev mode that enables live coding using:
+## Descrição
 
-```shell script
-./mvnw quarkus:dev
-```
+Protótipo de uma API REST em JAVA 25, utilizando o framework Quarkus, que permite simulações de investimentos e financiamentos.
 
-> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at <http://localhost:8080/q/dev/>.
+Persistência em banco de dados H2.
 
-## Packaging and running the application
+## Rodando os testes de unidade e integração
 
-The application can be packaged using:
+Executar no terminal "./mvnw clean verify" para o pacote java ser criado para execução em produção, serem
+executados os testes de unidade e integração e para validar a cobertura dos testes com o plugin JaCoCo.
 
-```shell script
-./mvnw package
-```
+## Cobertura dos teste com JaCoCo
 
-It produces the `quarkus-run.jar` file in the `target/quarkus-app/` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/quarkus-app/lib/` directory.
+Arquivo HTML na pasta "/target/jacoco-report/index.html" ou
+no link <http://localhost:63342/cverso-imersao2/target/jacoco-report/index.html>
 
-The application is now runnable using `java -jar target/quarkus-app/quarkus-run.jar`.
+## Rodando a aplicação
 
-If you want to build an _über-jar_, execute the following command:
+Ambiente de produção, no terminal executar "java -jar target/quarkus-app/quarkus-run.jar"
 
-```shell script
-./mvnw package -Dquarkus.package.jar.type=uber-jar
-```
+Ambiente de desenvolvimento, no terminal executar "quarkus dev" ou "./mvnw quarkus:dev"
 
-The application, packaged as an _über-jar_, is now runnable using `java -jar target/*-runner.jar`.
+## Documentação SWAGGER/OpenAPI 
 
-## Creating a native executable
+No link <http://localhost:8080/q/swagger-ui/#/> intencionalmente disponível também em produção. (quarkus.swagger-ui.always-include=always)
 
-You can create a native executable using:
+Exemplo JSON para teste via POSTMAN:
 
-```shell script
-./mvnw package -Dnative
-```
+{
 
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using:
+"valorInicial": 1000.00,
 
-```shell script
-./mvnw package -Dnative -Dquarkus.native.container-build=true
-```
+"taxaJurosMensal": 1.5,
 
-You can then execute your native executable with: `./target/cverso-imersao2-1.0.0-SNAPSHOT-runner`
+"prazoMeses": 12
 
-If you want to learn more about building native executables, please consult <https://quarkus.io/guides/maven-tooling>.
+}
+
+Response:
+
+{
+
+"id": 1,
+
+"valorInicial": 1000.00,
+
+"taxaJurosMensal": 1.5,
+
+"prazoMeses": 12,
+
+"valorTotalFinal": 1195.63,
+
+"valorTotalJuros": 195.63,
+
+"parcelas": [
+
+{
+
+"mes": 1,
+
+"saldoInicial": 1000.00,
+
+"juros": 15.00,
+
+"saldoFinal": 1015.00
+
+},
+
+{
+
+"mes": 2,
+
+"saldoInicial": 1015.00,
+
+"juros": 15.23,
+
+"saldoFinal": 1030.23
+
+},
+
+{
+
+"mes": 3,
+
+"saldoInicial": 1030.23,
+
+"juros": 15.45,
+
+"saldoFinal": 1045.68
+
+},
+
+{
+
+"mes": 4,
+
+"saldoInicial": 1045.68,
+
+"juros": 15.69,
+
+"saldoFinal": 1061.37
+
+},
+
+{
+
+"mes": 5,
+
+"saldoInicial": 1061.37,
+
+"juros": 15.92,
+
+"saldoFinal": 1077.29
+
+},
+
+{
+
+"mes": 6,
+
+"saldoInicial": 1077.29,
+
+"juros": 16.16,
+
+"saldoFinal": 1093.45
+
+},
+
+{
+
+"mes": 7,
+
+"saldoInicial": 1093.45,
+
+"juros": 16.40,
+
+"saldoFinal": 1109.85
+
+},
+
+{
+
+"mes": 8,
+
+"saldoInicial": 1109.85,
+
+"juros": 16.65,
+
+"saldoFinal": 1126.50
+
+},
+
+{
+
+"mes": 9,
+
+"saldoInicial": 1126.50,
+
+"juros": 16.90,
+
+"saldoFinal": 1143.40
+
+},
+
+{
+
+"mes": 10,
+
+"saldoInicial": 1143.40,
+
+"juros": 17.15,
+
+"saldoFinal": 1160.55
+
+},
+
+{
+
+"mes": 11,
+
+"saldoInicial": 1160.55,
+
+"juros": 17.41,
+
+"saldoFinal": 1177.96
+
+},
+
+{
+
+"mes": 12,
+
+"saldoInicial": 1177.96,
+
+"juros": 17.67,
+
+"saldoFinal": 1195.63
+
+}
+
+]
+
+}
