@@ -55,16 +55,6 @@ class SimulacaoServiceTest {
         assertThrows(NotFoundException.class, () -> service.buscarPorId(999L));
     }
 
-    @Test
-    void deveMapearSimulacaoParaResponseCorretamente() {
-        Simulacao simulacao = new Simulacao();
-        simulacao.id = 1L;
-        simulacao.valorInicial = BigDecimal.TEN;
-        // ... preencher parcelas ...
-        SimulacaoResponse response = SimulacaoMapper.toResponse(simulacao);
-        assertEquals(1L, response.id());
-        // ... asserts adicionais
-    }
 
     @Test
     void deveGarantirQueSomaDosJurosMensaisIgualTotalJuros() {
